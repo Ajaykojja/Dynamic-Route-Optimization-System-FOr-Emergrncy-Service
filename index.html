@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Route Optimization System</title>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚨 Emergency Route Optimization System</h1>
+            <div class="status-indicators">
+                <div class="status-item">
+                    <span class="status-dot active"></span>
+                    <span>System Active</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot" id="traffic-status"></span>
+                    <span>Traffic Monitor</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="section">
+                    <h3>🎯 Route Planning</h3>
+                    <div class="input-group">
+                        <label>From:</label>
+                        <select id="source-select">
+                            <option value="">Select Source</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>To:</label>
+                        <select id="destination-select">
+                            <option value="">Select Destination</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Emergency Type:</label>
+                        <select id="emergency-type">
+                            <option value="medical">🏥 Medical</option>
+                            <option value="fire">🚒 Fire</option>
+                            <option value="police">🚔 Police</option>
+                            <option value="general">🚑 General</option>
+                        </select>
+                    </div>
+                    <button id="find-route-btn" class="btn btn-primary">Find Optimal Route</button>
+                    <button id="simulate-traffic-btn" class="btn btn-secondary">Simulate Traffic</button>
+                </div>
+
+                <div class="section">
+                    <h3>📊 Route Information</h3>
+                    <div id="route-info" class="route-info">
+                        <div class="info-item">
+                            <span class="label">Distance:</span>
+                            <span id="route-distance">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Estimated Time:</span>
+                            <span id="route-time">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Traffic Status:</span>
+                            <span id="traffic-info">Normal</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Emergency Services:</span>
+                            <span id="emergency-services">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>🏥 Nearby Emergency Services</h3>
+                    <div id="emergency-list" class="emergency-list">
+                        <!-- Emergency services will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div id="map" class="map">
+                    <!-- Map visualization will be generated here -->
+                </div>
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4CAF50;"></div>
+                        <span>Normal Traffic</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #FF9800;"></div>
+                        <span>Moderate Traffic</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #F44336;"></div>
+                        <span>Heavy Traffic</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color optimal-route"></div>
+                        <span>Optimal Route</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="log-container">
+            <h3>📝 System Log</h3>
+            <div id="system-log" class="system-log"></div>
+        </div>
+    </div>
+
+    <script src="src/graph.js"></script>
+    <script src="src/dijkstra.js"></script>
+    <script src="src/traffic.js"></script>
+    <script src="src/emergency.js"></script>
+    <script src="src/visualization.js"></script>
+    <script src="src/main.js"></script>
+</body>
+</html>
